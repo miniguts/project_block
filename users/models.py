@@ -10,5 +10,5 @@ class User(models.Model):
         verbose_name = 'Пользователь'
         verbose_name_plural = 'Пользователи'
     
-    def str(self) -> str:
+    def __str__(self) -> str:
         return self.title
