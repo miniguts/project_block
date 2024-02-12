@@ -3,14 +3,14 @@ from django.utils import timezone
 
 
 class Tag(models.Model):
-    tag = models.CharField(verbose_name = 'Тег', max_length= 225)
+    tag = models.TextField(verbose_name = 'Тег', max_length= 225)
 
     class Meta:
         verbose_name = 'Тег'
         verbose_name_plural = 'Теги'
     
     def __str__(self):
-        return self.title
+        return self.tag
 
 # Create your models here.
 class Article(models.Model):
