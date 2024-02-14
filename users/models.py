@@ -1,10 +1,16 @@
 from django.db import models
+from tinymce import models as tinymce_models
+from django.contrib.auth.hashers import (
+    check_password, is_password_usable, make_password,
+)
 
 # Create your models here.
 class User(models.Model):
-    name =  models.CharField(max_length = 225, verbose_name = 'Имя')
-    email = models.EmailField(verbose_name = 'Почта')
-    age = models.IntegerField(verbose_name = 'Возраст')
+    name =  models.CharField(max_length=225, verbose_name='Имя', blank=True)
+    email = models.EmailField(verbose_name='Почта', blank=True)
+    age = models.IntegerField(verbose_name='Возраст', blank=True)
+    password = models.CharField(verbose_name="Пароль", blank=True, max_length=128)
+    avatar = models.ImageField(verbose_name="Аватарка", )
 
     class Meta:
         verbose_name = 'Пользователь'
@@ -12,3 +18,9 @@ class User(models.Model):
     
     def __str__(self) -> str:
         return self.name
+    
+# class Commetns(models.Model):
+#     created_by = models.ForeignKey(User, verbose_name="Автор", blank=True, on_delete=models.CASCADE, null=True)
+#     # likes =
+#     # reply =
+#     article_name = 
