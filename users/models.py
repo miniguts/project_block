@@ -6,11 +6,16 @@ from django.contrib.auth.hashers import (
 
 # Create your models here.
 class User(models.Model):
-    name =  models.CharField(max_length=225, verbose_name='Имя', blank=True)
+    user_name =  models.CharField(max_length=225, verbose_name='Имя', blank=True)
     email = models.EmailField(verbose_name='Почта', blank=True)
     age = models.IntegerField(verbose_name='Возраст', blank=True)
     password = models.CharField(verbose_name="Пароль", blank=True, max_length=128)
-    avatar = models.ImageField(verbose_name="Аватарка", )
+    avatar = models.ImageField(verbose_name="Аватарка", null=True )
+    # post = 
+    # subscribers = 
+    # subscriptions =
+
+
 
     class Meta:
         verbose_name = 'Пользователь'
@@ -23,4 +28,5 @@ class User(models.Model):
 #     created_by = models.ForeignKey(User, verbose_name="Автор", blank=True, on_delete=models.CASCADE, null=True)
 #     # likes =
 #     # reply =
+#     created_at =
 #     article_name = 
