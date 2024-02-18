@@ -1,22 +1,204 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
     <title>ARTICLE LIST</title>
     <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        .heaDrr {
+            display: flex;
+            width: 100%;
+            height: 80px;
+            margin: 0 auto;
+            justify-content: center;
+            
+        }
+
+        .top-menu {
+            display: flex;
+            position: relative;
+            width: 1140px;
+            height: 80px;
+        }
+
+        .top-logo {
+            margin-top: 15px;
+            width: 170px;
+            height: 50px;
+        }
+
+        .top-nav {
+            text-decoration: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: black;
+            margin: 10px;
+        }
+
+        .bodies {
+            display: flex;
+            width: 100%;
+            height: auto;
+            background-color: #b9c1cc;
+            margin: 0 auto;
+            justify-content: center;
+        }
+
+        .telo {
+            width: 1140px;
+            height: auto;
+            padding-bottom: 40px;
+        }
+
+        .zagolovok {
+            text-align: center;
+            color: rgb(4, 31, 77);
+            font-size: 40px;
+            margin-top: 50px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .osnova {
+            display: flex;
+            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(2, calc(50% - 30px));
+            grid-gap: 30px;
+            margin-top: 70px;
+        }
+
+        .block {
+            background-color: whitesmoke;
+            width: 540px;
+            height: 390px;
+        }
+
+        .block-into {
+            padding: 20px;
+        }
+
+        .block-into__img {
+            float: left;
+            display: block;
+        }
+
+        .image {
+            display: flex;
+            width: 186px;
+            height: 186px;
+        }
+
+        .block-into__text-block {
+            display: block;
+            text-align: right;
+        }
+
+        .autor {
+            display: block;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: grey;
+            font-size: 20px;
+
+        }
+
+        /* .text-block__text {
+
+        } */
+
+        .downnn {
+            display: flex;
+            width: 100%;
+            height: 200px;
+            background-color: rgb(65, 61, 61);
+            justify-content: center;
+        }
+
+        .contacts {
+            width: 1140px;
+            height: auto;
+            text-decoration: none;
+            margin: 20px;
+            font-size: 20px;
+            color: rgb(255, 255, 255);
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 20px; 
+        }
     </style>
 </head>
 <body>
-    <h1>Article</h1>
+    <!-- шапка -->
+    <header class="heaDrr">
+        <div class="top-menu">
+            <a href="#"><img src="./fonts/logo2.jpg" alt="logo"  class="top-logo"></a>
+            <nav style="display: inline-block; margin-left: 70%; margin-top: 32px;">
+                <a href="#contact" class="top-nav">Контакты</a>
+                <a href="#"class="top-nav">О нас</a>
+            </nav>
+        </div>
+    </header>
+    <!-- тело -->
+    <section class="bodies">
+        <div class="telo">
+            <div class="zagolovok"><h3>Приветствую!</h3></div>
+            <div class="osnova">
+                {% for i in articles %}
+                    <div class="block">
+                        <div class="block-into">
+                            <div class="block-into__img"><img src="{{i.content.url}}" alt="фото" class="image"></div>
+                            <div class="block-into__text-block">
+                                <div class="text-block__text">
+                                    <h3>{{i.title}}</h3>
+                                    <p>
+                                        {{i.description}}
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="autor">
+                                <p>{{i.created_by}}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
 
-    {% for i in articles %}
-    <br>
-        <p class="article_title">{{i.title}}</p>
-        <span>{{i.created_by}}</span>
-        <p class="article_tag">{{i.tag}}</p>
-    <br>
-    {% endfor %}
+    <section style="display: flex; height: auto; width: auto; padding-bottom: 40px; justify-content: center; background-color: #b9c1cc;">
+        <div style="width: 1140px; height: auto;"> 
+            <h3 id="about_us" style="text-align: center; font-size: 30px; color: rgb(9, 9, 78);">Наш сайт</h3>
+            <p style="font-family: 'Times New Roman', Times, serif; font-size: 20px; padding-top: 30px; text-align: center;">
+                Мы - ведущая социальная сеть, стремящаяся к созданию пространства, 
+                где люди могут свободно общаться, делиться своими идеями и увлечениями, и находить вдохновение. 
+                Наша цель - объединить миллионы пользователей по всему миру в одном цифровом сообществе, где каждый чувствует 
+                себя принятым и услышанным.
+            </p>
+        </div>
+    </section>
 
+    <!-- дно -->
+    <footer class="downnn">
+        <div id="contact" class="contacts">
+            <dl>
+                <dt>
+                    Контакты:
+                </dt>
+                <dd>
+                    <ul>
+                        <li><a href="#"><img src="" alt="WhatsApp"></a></li>
+                        <li><a href="#"><img src="" alt="Instagram"></a></li>
+                        <li><a href="#"><img src="" alt="Telegram"></a></li>
+                    </u  l>
+                </dd>
+            </dl>
+
+        </div>
+    </footer>
 </body>
 </html>

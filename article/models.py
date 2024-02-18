@@ -4,6 +4,8 @@ from tinymce import models as tinymce_models
 
 from users.models import User
 
+from users.models import User
+
 
 class Tag(models.Model):
     tag_name = tinymce_models.HTMLField(verbose_name = 'Тег', max_length= 225)
@@ -14,7 +16,7 @@ class Tag(models.Model):
         verbose_name_plural = 'Теги'
     
     def __str__(self):
-        return self.tag
+        return self.tag_name
 
 # Create your models here.
 class Article(models.Model):
@@ -23,14 +25,13 @@ class Article(models.Model):
         ('privat', 'Приватный')
     )
 
-    #autor_id
-    title = tinymce_models.HTMLField(verbose_name = 'Заголовок', max_length = '225')
-    description = tinymce_models.HTMLField(verbose_name = 'Описание', null=True)
+    title = models.TextField(verbose_name = 'Заголовок', blank=True)
+    description = tinymce_models.HTMLField(verbose_name = 'Описание', null=True, max_length=1000)
     content = models.ImageField(verbose_name= 'Контент')
-    tag = models.ForeignKey(Tag, verbose_name = 'Тег', blank = True, on_delete = models.PROTECT, null = True)
+    tag = models.ForeignKey(Tag, verbose_name = 'Тег', blank=False, on_delete = models.PROTECT, null = True)
     type_conten = models.CharField(verbose_name = 'Аудитория', choices = AUDITOR_CHOICES, default = 'public', max_length = 200)
     created_at = models.DateTimeField(verbose_name = 'Дата и время', default = timezone.now)
-    created_by = models.ForeignKey(User, verbose_name = 'Автор', blank = True, on_delete = models.CASCADE, null = True)
+    created_by = models.ForeignKey(User, verbose_name = 'Автор', blank = True, on_delete = models.CASCADE, null=True)
 
 
     class Meta:
