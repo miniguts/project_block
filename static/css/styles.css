@@ -1,0 +1,124 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+.heaDrr {
+    display: flex;
+    width: 100%;
+    height: 80px;
+    margin: 0 auto;
+    justify-content: center;
+    
+}
+
+.top-menu {
+    display: flex;
+    position: relative;
+    width: 1140px;
+    height: 80px;
+}
+
+.top-logo {
+    margin-top: 15px;
+    width: 170px;
+    height: 50px;
+}
+
+.top-nav {
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: black;
+    margin: 10px;
+}
+
+.bodies {
+    display: flex;
+    width: 100%;
+    height: auto;
+    background-color: #b9c1cc;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.telo {
+    width: 1140px;
+    height: auto;
+    padding-bottom: 40px;
+}
+
+.zagolovok {
+    text-align: center;
+    color: rgb(4, 31, 77);
+    font-size: 40px;
+    margin-top: 50px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.osnova {
+    display: flex;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(2, calc(50% - 30px));
+    grid-gap: 30px;
+    margin-top: 70px;
+}
+
+.block {
+    background-color: whitesmoke;
+    width: 540px;
+    height: 390px;
+}
+
+.block-into {
+    padding: 20px;
+}
+
+.block-into__img {
+    float: left;
+    display: block;
+}
+
+.image {
+    display: flex;
+    width: 186px;
+    height: 186px;
+}
+
+.block-into__text-block {
+    display: block;
+    text-align: right;
+}
+
+.autor {
+    display: block;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: grey;
+    font-size: 20px;
+
+}
+
+/* .text-block__text {
+
+} */
+
+.downnn {
+    display: flex;
+    width: 100%;
+    height: 200px;
+    background-color: rgb(65, 61, 61);
+    justify-content: center;
+}
+
+.contacts {
+    width: 1140px;
+    height: auto;
+    text-decoration: none;
+    margin: 20px;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 20px; 
+}

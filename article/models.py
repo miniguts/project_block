@@ -2,9 +2,7 @@ from django.db import models
 from django.utils import timezone
 from tinymce import models as tinymce_models
 
-from users.models import User
-
-from users.models import User
+from authorization.models import User
 
 
 class Tag(models.Model):
@@ -31,7 +29,7 @@ class Article(models.Model):
     tag = models.ForeignKey(Tag, verbose_name = 'Тег', blank=False, on_delete = models.PROTECT, null = True)
     type_conten = models.CharField(verbose_name = 'Аудитория', choices = AUDITOR_CHOICES, default = 'public', max_length = 200)
     created_at = models.DateTimeField(verbose_name = 'Дата и время', default = timezone.now)
-    created_by = models.ForeignKey(User, verbose_name = 'Автор', blank = True, on_delete = models.CASCADE, null=True)
+    author = models.ForeignKey(User, verbose_name= 'Автор', blank=True, null=True, on_delete=models.CASCADE)
 
 
     class Meta:

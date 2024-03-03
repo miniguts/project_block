@@ -1,0 +1,10 @@
+{% extends 'article/base.html' %}
+
+{% block title %} ARTICLE DETAIL {% endblock title %}
+
+{% block content %}
+    <a href="{% url 'article_edit' pk=article.pk %}">Изменить</a>
+    <h1 class="title" style="opacity: 0.4;">{{article.title}}</h1>
+    <img src="{{article.image.url}}" alt="">
+    <h2>{{artcile.}}</h2>
+{% endblock content %}
