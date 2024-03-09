@@ -38,3 +38,15 @@ def article_edit(request, pk):
     else:
         form = ArticleForm(instance=article)
     return render(request, 'article/article_edit.html',{'form':form, 'article':article})
+
+
+def tag_list(request):
+    tags = Article.objects.all()
+    return render(request, 'tag/tag_list.html', {'tag': tags})
+
+def article_detail(request, pk):
+    article = get_object_or_404(Article.objects.all(), pk=pk)
+    return render(request, 'articles/article_detail.html', {'article':article})
+
+
+
