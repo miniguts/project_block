@@ -17,7 +17,7 @@ class CommentSerializer(serializers.ModelSerializer):
 
 
 class ArticleSerializer(serializers.ModelSerializer):
-    tag = TagSerializer(source='tags' ,many=True)
+    # tag = TagSerializer(source='tag_name', many=True)
     comment = CommentSerializer(source='comments', many=True)
 
     class Meta:

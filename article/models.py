@@ -5,7 +5,6 @@ from tinymce import models as tinymce_models
 from authorization.models import User
 
 
-
 class Article(models.Model):
     AUDITOR_CHOICES = (
         ('public', 'Публичный'),
@@ -27,6 +26,7 @@ class Article(models.Model):
 
     def __str__(self) -> str:
         return self.title
+    
 
 class Tag(models.Model):
     tag_name = tinymce_models.HTMLField(verbose_name = 'Тег', max_length= 225)
@@ -39,10 +39,12 @@ class Tag(models.Model):
     def __str__(self):
         return self.tag_name
 
+
+
 class Comment(models.Model):
     comment = tinymce_models.HTMLField(verbose_name = 'Комент')
     created_at = models.DateTimeField(verbose_name='Дата и время', default = timezone.now)
-    # author = models.ForeignKey(User, verbose_name='Автор', default=User.username, null=True, on_delete=models.SET_NULL)
+    # author = models.ForeignKey(User, verbose_name='Автор', null=True, on_delete=models.SET_NULL)
     article = models.ForeignKey(Article, verbose_name='Пост', related_name='comments', on_delete=models.CASCADE, null=True, blank=True)
 
 
