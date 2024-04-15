@@ -5,7 +5,8 @@ from authorization.views import (
     TokenRefreshView,
     UserRegisterView,
     UserProfileView,
-    UserProfileEditView
+    UserProfileEditView,
+    UserProfileDeletView
 )
 
 urlpatterns = [
@@ -14,4 +15,5 @@ urlpatterns = [
     path('register/', UserRegisterView.as_view()),
     path('profile/', UserProfileView.as_view()),
     path('name_change/', UserProfileEditView.as_view()),
+    path('delete_profile/', UserProfileDeletView.as_view({'delete': 'delete_profile'}))
 ]

@@ -49,7 +49,7 @@ class UserRegisterView(APIView):
         email = request.data['email']
         role = request.data['role']
         try:
-            get_object_or_404(User.objects.all(),username=username)
+            get_object_or_404(User.objects.all(), username=username)
             return Response(data={'info':'Пользователь уже существует'},status=status.HTTP_409_CONFLICT)
         except:
             User.objects.create(
@@ -82,3 +82,12 @@ class UserProfileEditView(generics.GenericAPIView):
         user.first_name=first_name
         user.save()
         return Response(status=status.HTTP_200_OK)
+    
+
+class UserProfileDeletView(GenericViewSet):
+    permission_classes = [IsAuthenticated]
+
+    def delete_profile(self, request):
+        user = request.user
+        user.delete()
+        return Response(data={'info':'Пользователь был удален'},status=status.HTTP_204_NO_CONTENT)

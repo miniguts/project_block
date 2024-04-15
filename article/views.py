@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 
-from article.models import Article
+from .models import Article, Comment, Group_up
 from article.forms import ArticleForm
 
 # Create your views here.
@@ -44,9 +44,10 @@ def tag_list(request):
     tags = Article.objects.all()
     return render(request, 'tag/tag_list.html', {'tag': tags})
 
-def article_detail(request, pk):
-    article = get_object_or_404(Article.objects.all(), pk=pk)
-    return render(request, 'articles/article_detail.html', {'article':article})
+def comment_list(request):
+    comments = Comment.objects.all()
+    return render(request, 'comment/comments_list.html', {'Comments': comments})
 
-
-
+def Groupup_list(request):
+    group = Group_up.objects.all()
+    return render(request, 'group/group_up.html', {'Group': group})

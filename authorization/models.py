@@ -21,10 +21,9 @@ class User(AbstractBaseUser,PermissionsMixin):
 
     ROLE_TYPES = (
         (SUPERADMIN, 'Суперадмин'),
-        (COURIER, 'Курьер'),
-        (BASIC, 'Покупатель'),
+        (COURIER, 'Админ'),
+        (BASIC, 'Пользователь'),
     )
-
 
     IS_ACTIVE = (
         (True, 'Не заблокирован'),

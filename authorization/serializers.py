@@ -39,7 +39,7 @@ class TokenObtainPairSerializer(TokenObtainPairSerializer):
         data['id'] = self.user.id
         data['username'] = self.user.username
         data['role'] = self.user.ROLE_GROUP[self.user.role]
-
+        
         return data
         
 
